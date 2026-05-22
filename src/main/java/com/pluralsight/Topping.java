@@ -6,6 +6,6 @@ abstract public class Topping {
     public Topping(String name) {
         this.name = name;
     }
-
     public abstract double getPrice(PizzaSize size);
 }
+

@@ -26,12 +26,12 @@ public class PremiumTopping extends Topping{
     }
     @Override
     public double getPrice(PizzaSize size) {
-        if (size.equals(personal)) {
+        if (size.equals(PERSONAL)) {
             return personalPrice + (personalExtraPrice * extra);
-        } else if (size.equals(medium)) {
-            return mediumPrice + (mediumPrice * extra);
-        } else if (size.equals(large)) {
-            return largePrice + (largePrice * extra);
+        } else if (size.equals(MEDIUM)) {
+            return mediumPrice + (mediumExtraPrice * extra);
+        } else if (size.equals(LARGE)) {
+            return largePrice + (largeExtraPrice * extra);
         }
         return 0.0;
 

@@ -1,13 +1,13 @@
 package com.pluralsight;
 
 public class PizzaCrust {
-    public static final PizzaCrust thin = new PizzaCrust("Thin");
-    public static final PizzaCrust regular = new PizzaCrust("Regular");
-    public static final PizzaCrust thick = new PizzaCrust("Thick");
-    public static final PizzaCrust cauliflower  = new PizzaCrust("Cauliflower");
+    public static final PizzaCrust THIN = new PizzaCrust("Thin");
+    public static final PizzaCrust REGULAR = new PizzaCrust("Regular");
+    public static final PizzaCrust THICK = new PizzaCrust("Thick");
+    public static final PizzaCrust CAULIFLOWER  = new PizzaCrust("Cauliflower");
     private String name;
 
-    public PizzaCrust(String name) {
+    private PizzaCrust(String name) {
         this.name = name;
     }
 
