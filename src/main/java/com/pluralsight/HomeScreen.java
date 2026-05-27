@@ -24,6 +24,10 @@ public class HomeScreen {
                 case 0:
                     run = false;
                     System.out.println("Have a wonderful day, come back soon!");
+                    break;
+
+                default:
+                    System.out.println("Invalid option, please try again.");
             }
         }
     }
