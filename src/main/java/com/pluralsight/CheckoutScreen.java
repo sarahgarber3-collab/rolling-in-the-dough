@@ -12,8 +12,8 @@ public class CheckoutScreen {
         order.getItemsNewestFirst().forEach(System.out::println);
         System.out.println("Total: $" + String.format("%.2f", order.getTotal()));
 
-        System.out.println("1.) Confirm Order");
-        System.out.println("0.) Cancel Order");
+        System.out.println("\t1) Confirm Order");
+        System.out.println("\t0) Cancel Order");
         System.out.print("Select an option: ");
         int userOption = Main.scanner.nextInt();
         Main.scanner.nextLine();

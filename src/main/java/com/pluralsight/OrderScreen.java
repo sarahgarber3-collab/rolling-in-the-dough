@@ -14,11 +14,11 @@ public class OrderScreen {
             System.out.println("---Your Current Order---");
             order.getItemsNewestFirst().forEach(System.out::println);
             System.out.println("---Order Screen---");
-            System.out.println("\t1.) Add Pizza");
-            System.out.println("\t2.) Add Drink ");
-            System.out.println("\t3.) Add Garlic Knots ");
-            System.out.println("\t4.) Checkout ");
-            System.out.print("\t0.) Cancel Order ");
+            System.out.println("\t1) Add Pizza");
+            System.out.println("\t2) Add Drink ");
+            System.out.println("\t3) Add Garlic Knots ");
+            System.out.println("\t4) Checkout ");
+            System.out.println("\t0) Cancel Order ");
             System.out.print("Select from the above options: ");
 
             int userOption = Main.scanner.nextInt();
@@ -61,9 +61,9 @@ public class OrderScreen {
         }
         private void addDrink() {
             System.out.println("Drink Size Options");
-            System.out.println("\t1.) Small - $2.00");
-            System.out.println("\t2.) Medium - $2.50");
-            System.out.println("\t3.) Large - $3.00");
+            System.out.println("\t1) Small - $2.00");
+            System.out.println("\t2) Medium - $2.50");
+            System.out.println("\t3) Large - $3.00");
             System.out.print("Select Drink Size: ");
             int drinkOption = Main.scanner.nextInt();
             Main.scanner.nextLine();
@@ -85,9 +85,9 @@ public class OrderScreen {
                     return;
             }
             System.out.println("Drink Flavor Options");
-            System.out.println("\t1.) Coke");
-            System.out.println("\t2.) Root beer");
-            System.out.println("\t3.) Pepsi");
+            System.out.println("\t1) Coke");
+            System.out.println("\t2) Root beer");
+            System.out.println("\t3) Pepsi");
             System.out.print("Select Drink: ");
             int flavorOption = Main.scanner.nextInt();
             Main.scanner.nextLine();
