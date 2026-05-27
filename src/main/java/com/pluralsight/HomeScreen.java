@@ -7,8 +7,8 @@ public class HomeScreen {
         boolean run = true;
         while (run) {
             System.out.println("---Welcome to Rolling in the Dough Pizzaria---");
-            System.out.println("\t1.) New Order");
-            System.out.println("\t0.) - Exit.");
+            System.out.println("\t1) New Order");
+            System.out.println("\t0) - Exit.");
             System.out.print("Select from the above options: ");
 
             int userOption = Main.scanner.nextInt();
