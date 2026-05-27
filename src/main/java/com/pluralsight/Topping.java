@@ -1,7 +1,7 @@
 package com.pluralsight;
 
 abstract public class Topping {
-    private String name;
+    protected String name;
 
     public Topping(String name) {
         this.name = name;

@@ -93,6 +93,7 @@ public class PizzaBuilder {
         }
 
     }
+
     private PizzaCrust selectCrust() {
         while (true) {
             System.out.println("Crust Options");
@@ -120,9 +121,117 @@ public class PizzaBuilder {
             }
         }
     }
-    private void selectToppings(Pizza pizza){
+    private void selectToppings(Pizza pizza) {
 
+        boolean choosingToppings = true;
+
+        while(choosingToppings) {
+            System.out.println("Pizza Topping Options");
+            System.out.println("\t1) Meat");
+            System.out.println("\t2) Cheese");
+            System.out.println("\t3) Other Toppings");
+            System.out.println("\t4) Sauces");
+            System.out.println("\t0) Done adding toppings");
+            System.out.println("\t5) Sides");
+
+            System.out.print("Select a topping option: ");
+            int toppingOption = Main.scanner.nextInt();
+            Main.scanner.nextLine();
+
+            switch (toppingOption) {
+                case 1:
+                    System.out.println("Meat Options:");
+                    handlePremiumCategory(meats, pizza);
+                    break;
+
+                case 2:
+                    System.out.println("Cheese Options:");
+                    handlePremiumCategory(cheeses, pizza);
+                    break;
+
+                case 3:
+                    System.out.println("Other Toppings:");
+                    handleRegularCategory(regularToppings, pizza);
+                    break;
+
+                case 4:
+                    System.out.println("Sauce Options:");
+                    handleRegularCategory(sauces, pizza);
+                    break;
+
+                case 5:
+                    System.out.println("Side Options:");
+                    handleRegularCategory(sides, pizza);
+                    break;
+                case 0:
+                    choosingToppings = false;
+                    break;
+
+                default:
+                    System.out.println("Invalid option.");
+            }
+        }
     }
+    private void handlePremiumCategory(ArrayList<PremiumTopping> list, Pizza pizza) {
+
+        boolean addMore = true;
+
+        while (addMore) {
+            for (int i = 0; i < list.size(); i++) {
+                System.out.println("\t" + (i + 1) + ") " + list.get(i).getName());
+            }
+
+            System.out.print("Select an option: ");
+            int choice = Main.scanner.nextInt();
+            Main.scanner.nextLine();
+
+            if (choice >= 1 && choice <= list.size()) {
+                PremiumTopping selected = list.get(choice - 1);
+                pizza.addTopping(selected);
+                System.out.println(selected.getName() + " added!");
+            } else {
+                System.out.println("Invalid choice.");
+            }
+
+            System.out.print("Add another from this category? (yes/no): ");
+            String again = Main.scanner.nextLine();
+
+            if (!again.equalsIgnoreCase("yes")) {
+                addMore = false;
+            }
+        }
+    }
+
+    private void handleRegularCategory(ArrayList<RegularTopping> list, Pizza pizza) {
+
+        boolean addMore = true;
+
+        while (addMore) {
+            for (int i = 0; i < list.size(); i++) {
+                System.out.println("\t" + (i + 1) + ") " + list.get(i).getName());
+            }
+
+            System.out.print("Select an option: ");
+            int choice = Main.scanner.nextInt();
+            Main.scanner.nextLine();
+
+            if (choice >= 1 && choice <= list.size()) {
+                RegularTopping selected = list.get(choice - 1);
+                pizza.addTopping(selected);
+                System.out.println(selected.getName() + " added!");
+            } else {
+                System.out.println("Invalid choice.");
+            }
+
+            System.out.print("Add another from this category? (yes/no): ");
+            String again = Main.scanner.nextLine();
+
+            if (!again.equalsIgnoreCase("yes")) {
+                addMore = false;
+            }
+        }
+    }
+
     private void askStuffedCrust(Pizza pizza){
         System.out.println("Would you like Stuffed Crust? Type Yes or No : ");
         String answer = Main.scanner.nextLine();

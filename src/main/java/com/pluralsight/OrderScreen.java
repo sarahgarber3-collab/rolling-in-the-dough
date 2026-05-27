@@ -115,8 +115,8 @@ public class OrderScreen {
             System.out.println("Drink added to order!");
         }
         private void addGarlicKnots(){
-        GarlicKnots garlicKnots = new GarlicKnots();
-        order.addItem(garlicKnots);
+            GarlicKnots garlicKnots = new GarlicKnots();
+            order.addItem(garlicKnots);
         }
         private void checkout(){
             if (!order.isValid()) {
