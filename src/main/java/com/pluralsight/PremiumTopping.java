@@ -24,6 +24,15 @@ public class PremiumTopping extends Topping{
         this.extra = extra;
 
     }
+
+    public int getExtra() {
+        return extra;
+    }
+
+    public void setExtra(int extra) {
+        this.extra = extra;
+    }
+
     @Override
     public double getPrice(PizzaSize size) {
         if (size.equals(PERSONAL)) {
@@ -35,5 +44,12 @@ public class PremiumTopping extends Topping{
         }
         return 0.0;
 
+    }
+    @Override
+    public String toString() {
+        if (extra > 0) {
+            return getName() + "(extra)";
+        }
+        return getName();
     }
 }

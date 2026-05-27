@@ -1,7 +1,7 @@
 package com.pluralsight;
 
 import java.util.ArrayList;
-import java.util.Locale;
+
 
 public class PizzaBuilder {
     private ArrayList<PremiumTopping> meats;
@@ -44,7 +44,7 @@ public class PizzaBuilder {
         regularToppings.add(new RegularTopping("Onions"));
         regularToppings.add(new RegularTopping("Mushrooms"));
         regularToppings.add(new RegularTopping("Bell Peppers"));
-        regularToppings.add(new RegularTopping("olives"));
+        regularToppings.add(new RegularTopping("Olives"));
         regularToppings.add(new RegularTopping("Tomatoes"));
         regularToppings.add(new RegularTopping("Spinach"));
         regularToppings.add(new RegularTopping("Basil"));
@@ -131,8 +131,8 @@ public class PizzaBuilder {
             System.out.println("\t2) Cheese");
             System.out.println("\t3) Other Toppings");
             System.out.println("\t4) Sauces");
-            System.out.println("\t0) Done adding toppings");
             System.out.println("\t5) Sides");
+            System.out.println("\t0) Done adding toppings");
 
             System.out.print("Select a topping option: ");
             int toppingOption = Main.scanner.nextInt();
@@ -189,6 +189,13 @@ public class PizzaBuilder {
                 PremiumTopping selected = list.get(choice - 1);
                 pizza.addTopping(selected);
                 System.out.println(selected.getName() + " added!");
+
+                System.out.print("Would you like extra " + selected.getName() + "? (yes/no): ");
+                String extra = Main.scanner.nextLine();
+                if (extra.equalsIgnoreCase("yes")) {
+                    selected.setExtra(1);
+                }
+
             } else {
                 System.out.println("Invalid choice.");
             }
@@ -199,6 +206,8 @@ public class PizzaBuilder {
             if (!again.equalsIgnoreCase("yes")) {
                 addMore = false;
             }
+
+
         }
     }
 
@@ -219,6 +228,13 @@ public class PizzaBuilder {
                 RegularTopping selected = list.get(choice - 1);
                 pizza.addTopping(selected);
                 System.out.println(selected.getName() + " added!");
+
+                System.out.print("Would you like extra " + selected.getName() + "? (yes/no): ");
+                String extra = Main.scanner.nextLine();
+                if (extra.equalsIgnoreCase("yes")) {
+                    pizza.addTopping(new RegularTopping("Extra " + selected.getName()));
+                    System.out.println("Extra " + selected.getName() + " added!");
+                }
             } else {
                 System.out.println("Invalid choice.");
             }

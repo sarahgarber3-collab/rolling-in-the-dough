@@ -12,5 +12,10 @@ abstract public class Topping {
     }
 
     public abstract double getPrice(PizzaSize size);
+
+    @Override
+    public String toString(){
+        return getName();
+    }
 }
 

@@ -49,15 +49,15 @@ public class Pizza implements Orderable{
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(size.getSize());
+        sb.append(size.getSize() + "Pizza");
         sb.append(" | ");
-        sb.append(crust.getName());
+        sb.append(crust.getName() + "Crust");
         sb.append("\n");
         sb.append(stuffedCrust ? "Stuffed Crust" : "No Stuffed Crust");
         sb.append("\n");
         toppings.stream()
                 .forEach(t -> sb.append("- ")
-                                        .append(t.getName())
+                                        .append(t.toString())
                                         .append("\n"));
         sb.append("Price: $");
         sb.append(String.format("%.2f", getPrice()));
