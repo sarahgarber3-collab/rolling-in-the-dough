@@ -76,9 +76,9 @@ public class PizzaBuilder {
 
         while(true) {
             System.out.println("Pizza Size Options");
-            System.out.println("\t1.) Personal - $8.50");
-            System.out.println("\t2.) Medium - $12.00");
-            System.out.println("\t3.) Large - $16.50");
+            System.out.println("\t1) Personal(8inch) - $8.50");
+            System.out.println("\t2) Medium(12inch) - $12.00");
+            System.out.println("\t3) Large(16inch) - $16.50");
             System.out.print("Select Pizza Size: ");
             int pizzaOption = Main.scanner.nextInt();
             Main.scanner.nextLine();
