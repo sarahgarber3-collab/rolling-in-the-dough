@@ -53,6 +53,10 @@ public class OrderScreen {
         }
     }
         private void addPizza(){
+        PizzaBuilder pizzaBuilder = new PizzaBuilder();
+        Pizza pizza = pizzaBuilder.run();
+        order.addItem(pizza);
+
 
         }
         private void addDrink() {
