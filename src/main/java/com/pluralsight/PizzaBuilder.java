@@ -1,5 +1,6 @@
 package com.pluralsight;
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 
 
@@ -132,8 +133,8 @@ public class PizzaBuilder {
             System.out.println("\t3) Other Toppings");
             System.out.println("\t4) Sauces");
             System.out.println("\t5) Sides");
+            System.out.println("\t6) Remove a Topping");
             System.out.println("\t0) Done adding toppings");
-
             System.out.print("Select a topping option: ");
             int toppingOption = Main.scanner.nextInt();
             Main.scanner.nextLine();
@@ -163,6 +164,9 @@ public class PizzaBuilder {
                     System.out.println("Side Options:");
                     handleRegularCategory(sides, pizza);
                     break;
+                case 6:
+                    handleRemoving(pizza);
+                    break;
                 case 0:
                     choosingToppings = false;
                     break;
@@ -172,6 +176,51 @@ public class PizzaBuilder {
             }
         }
     }
+    private void handleRemoving(Pizza pizza){
+        if (pizza.getToppings().isEmpty()) {
+            System.out.println("There are no toppings to remove");
+            return;
+        }
+        boolean removeMore = true;
+
+        while (removeMore) {
+            for (int i = 0; i < pizza.getToppings().size(); i++) {
+                System.out.println("\t" + (i + 1) + ") " + pizza.getToppings().get(i).getName());
+            }
+
+            System.out.print("Select an option: ");
+            int choice = Main.scanner.nextInt();
+            Main.scanner.nextLine();
+
+            if (choice >= 1 && choice <= pizza.getToppings().size()) {
+                Topping selected = pizza.getToppings().get(choice - 1);
+                pizza.removeTopping(selected);
+                System.out.println(selected.getName() + " Removed!");
+
+                if (pizza.getToppings().isEmpty()) {
+                    removeMore = false;
+                    System.out.println("No more toppings to remove");
+                    break;
+                }
+
+
+
+            } else {
+                System.out.println("Invalid choice.");
+            }
+
+            System.out.print("Remove another topping? (yes/no): ");
+            String again = Main.scanner.nextLine();
+
+            if (!again.equalsIgnoreCase("yes")) {
+                removeMore = false;
+            }
+
+
+        }
+    }
+
+
     private void handlePremiumCategory(ArrayList<PremiumTopping> list, Pizza pizza) {
 
         boolean addMore = true;

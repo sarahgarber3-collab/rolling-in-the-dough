@@ -18,6 +18,9 @@ public class Pizza implements Orderable{
     public void addTopping(Topping topping) {
         toppings.add(topping);
     }
+    public void removeTopping(Topping topping){
+        toppings.remove(topping);
+    }
 
     public PizzaSize getSize() {
         return size;
