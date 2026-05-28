@@ -27,9 +27,10 @@ public class Order {
     }
 
     public double getTotal(){
-        return items.stream()
+        double subtotal = items.stream()
                 .mapToDouble(item -> item.getPrice())
                 .sum();
+        return subtotal * 1.08; // adds 8% tax
     }
 
     public ArrayList<Orderable> getItemsNewestFirst(){

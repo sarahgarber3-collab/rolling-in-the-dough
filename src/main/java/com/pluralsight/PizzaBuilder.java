@@ -232,7 +232,7 @@ public class PizzaBuilder {
                 System.out.print("Would you like extra " + selected.getName() + "? (yes/no): ");
                 String extra = Main.scanner.nextLine();
                 if (extra.equalsIgnoreCase("yes")) {
-                    pizza.addTopping(new RegularTopping("Extra " + selected.getName()));
+                    pizza.addTopping(new RegularTopping(selected.getName() + "(extra)"));
                     System.out.println("Extra " + selected.getName() + " added!");
                 }
             } else {
