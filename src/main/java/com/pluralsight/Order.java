@@ -25,12 +25,18 @@ public class Order {
     public LocalDateTime getOrderTime() {
         return orderTime;
     }
-
-    public double getTotal(){
-        double subtotal = items.stream()
+    public double getSubtotal() {
+        return items.stream()
                 .mapToDouble(item -> item.getPrice())
                 .sum();
-        return subtotal * 1.08; // adds 8% tax
+
+    }
+    public double getTax() {
+        return getSubtotal() * 0.08;
+    }
+
+    public double getTotal(){
+        return getSubtotal() + getTax(); // adds 8% tax
     }
 
     public ArrayList<Orderable> getItemsNewestFirst(){

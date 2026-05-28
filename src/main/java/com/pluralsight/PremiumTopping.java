@@ -48,7 +48,7 @@ public class PremiumTopping extends Topping{
     @Override
     public String toString() {
         if (extra > 0) {
-            return getName() + "(extra)";
+            return getName() + " (extra)";
         }
         return getName();
     }

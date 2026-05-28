@@ -19,7 +19,11 @@ public class ReceiptWriter {
                 writer.write(item.toString());
                 writer.newLine();
             }
-            writer.write("Total: $" + String.format("%.2f", order.getTotal()));
+            writer.write("Sub Total: $" + String.format("%.2f",order.getSubtotal()));
+            writer.newLine();
+            writer.write("Tax: (8%): $" + String.format("%.2f", order.getTax()));
+            writer.newLine();
+            writer.write("Total: $" + String.format("%.2f",order.getTotal()));
             writer.close();
 
 
