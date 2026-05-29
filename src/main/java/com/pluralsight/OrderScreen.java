@@ -11,7 +11,7 @@ public class OrderScreen {
     public void run() {
 
         while (run) {
-            System.out.println("---Your Current Order---");
+            System.out.println("\n---Your Current Order---");
             order.getItemsNewestFirst().forEach(System.out::println);
             System.out.println("---Order Screen---");
             System.out.println("\t1) Add Pizza");
@@ -60,7 +60,7 @@ public class OrderScreen {
 
         }
         private void addDrink() {
-            System.out.println("Drink Size Options");
+            System.out.println("\n---Drink Size Options---");
             System.out.println("\t1) Small - $2.00");
             System.out.println("\t2) Medium - $2.50");
             System.out.println("\t3) Large - $3.00");
@@ -84,7 +84,7 @@ public class OrderScreen {
                     System.out.println("Invalid option, no drink added.");
                     return;
             }
-            System.out.println("Drink Flavor Options");
+            System.out.println("\n---Drink Flavor Options---");
             System.out.println("\t1) Coke");
             System.out.println("\t2) Root beer");
             System.out.println("\t3) Pepsi");

@@ -8,7 +8,7 @@ public class CheckoutScreen {
     }
 
     public void run() {
-        System.out.println("---Order Checkout---");
+        System.out.println("\n---Order Checkout---");
         order.getItemsNewestFirst().forEach(System.out::println);
         System.out.println("Subtotal: $" + String.format("%.2f", order.getSubtotal()));
         System.out.println("Tax (8%): $" + String.format("%.2f", order.getTax()));

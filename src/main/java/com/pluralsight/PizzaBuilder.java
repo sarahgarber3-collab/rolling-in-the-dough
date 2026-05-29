@@ -1,6 +1,5 @@
 package com.pluralsight;
 
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 
 
@@ -65,18 +64,77 @@ public class PizzaBuilder {
     }
 
     public Pizza run() {
-        PizzaSize size = selectSize();
-        PizzaCrust crust = selectCrust();
-        Pizza pizza = new Pizza(size, crust);
-        selectToppings(pizza);
-        askStuffedCrust(pizza);
-        return pizza;
+        while (true) {
+            System.out.println("\n---Pizza Options---");
+            System.out.println("\t1) Create your own Pizza?");
+            System.out.println("\t2) Select a Pizza Special from Menu");
+            System.out.print("Select from the options: ");
+            int userOption = Main.scanner.nextInt();
+            Main.scanner.nextLine();
+
+            switch (userOption) {
+                case 1:
+                    PizzaSize size = selectSize();
+                    PizzaCrust crust = selectCrust();
+                    Pizza pizza = new Pizza(size, crust);
+                    selectToppings(pizza);
+                    askStuffedCrust(pizza);
+                    return pizza;
+
+                case 2:
+                    return selectSignaturePizza();
+
+
+                default:
+                    System.out.println("Invalid option, no Pizza added. Try again.");
+
+
+            }
+        }
+    }
+
+    private Pizza selectSignaturePizza() {
+
+            System.out.println("\n---Pizza Menu Options---");
+            System.out.println("\t1) Rolling Hawaiian");
+            System.out.println("\t - Sausage, Mozzarella, Pineapple, Bell Peppers, Marinara");
+            System.out.println("\t2) Rolling Margherita");
+            System.out.println("\t -Mozzarella, Tomatoes, Basil, Marinara, Olive Oil");
+            System.out.println("\t3) Rolling Veggie");
+            System.out.println("\t -Bell Peppers, Spinach, Olives, Onions, Marinara, Mozzarella");
+            System.out.print("Select from the above Menu: ");
+            int menuOption = Main.scanner.nextInt();
+            Main.scanner.nextLine();
+
+            PizzaSize size = selectSize();
+            PizzaCrust crust = selectCrust();
+            Pizza pizza;
+
+            switch (menuOption) {
+                case 1:
+                    pizza = PresetPizza.rollingHawaiian(size, crust);
+                    break;
+                case 2:
+                    pizza = PresetPizza.rollingMargherita(size, crust);
+                    break;
+                case 3:
+                    pizza = PresetPizza.rollingVeggie(size, crust);
+                    break;
+                default:
+                    System.out.println("Invalid option, defaulting to custom Pizza.");
+                    pizza = new Pizza(size, crust);
+            }
+            selectToppings(pizza);
+            askStuffedCrust(pizza);
+            return pizza;
+
+
     }
 
     private PizzaSize selectSize() {
 
         while(true) {
-            System.out.println("Pizza Size Options");
+            System.out.println("\n---Pizza Size Options---");
             System.out.println("\t1) Personal(8inch) - $8.50");
             System.out.println("\t2) Medium(12inch) - $12.00");
             System.out.println("\t3) Large(16inch) - $16.50");
@@ -97,7 +155,7 @@ public class PizzaBuilder {
 
     private PizzaCrust selectCrust() {
         while (true) {
-            System.out.println("Crust Options");
+            System.out.println("\n---Crust Options---");
             System.out.println("\t1) Thin");
             System.out.println("\t2) Regular");
             System.out.println("\t3) Thick");
@@ -127,7 +185,7 @@ public class PizzaBuilder {
         boolean choosingToppings = true;
 
         while(choosingToppings) {
-            System.out.println("Pizza Topping Options");
+            System.out.println("\n---Pizza Topping Options---");
             System.out.println("\t1) Meat");
             System.out.println("\t2) Cheese");
             System.out.println("\t3) Other Toppings");
@@ -298,7 +356,7 @@ public class PizzaBuilder {
     }
 
     private void askStuffedCrust(Pizza pizza){
-        System.out.println("Would you like Stuffed Crust? Type Yes or No : ");
+        System.out.print("Would you like Stuffed Crust? Type Yes or No : ");
         String answer = Main.scanner.nextLine();
 
         if(answer.equalsIgnoreCase("yes")){
