@@ -7,7 +7,7 @@ public class HomeScreen {
         boolean run = true;
         while (run) {
             System.out.println("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-            System.out.println("        🍕  ROLLING IN THE DOUGH PIZZARIA  🍕");
+            System.out.println("        🍕  ROLLING IN THE DOUGH PIZZERIA  🍕");
             System.out.println("              \"Where Every Slice Hits Different\"");
             System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
             System.out.println("\n ---Home Screen---");
