@@ -18,6 +18,7 @@ public class ReceiptWriter {
             writer.write("Rolling In The Dough");
             writer.newLine();
             writer.write("\t---RECEIPT---");
+            writer.newLine();
 
             for (Orderable item : order.getItems()) {
                 writer.write(item.toString());
