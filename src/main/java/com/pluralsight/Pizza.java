@@ -52,6 +52,7 @@ public class Pizza implements Orderable{
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
+        sb.append("\n");
         sb.append(size.getSize() + " Pizza");
         sb.append(" | ");
         sb.append(crust.getName() + " Crust");

@@ -192,7 +192,7 @@ public class PizzaBuilder {
             System.out.println("\t4) Sauces");
             System.out.println("\t5) Sides");
             System.out.println("\t6) Remove a Topping");
-            System.out.println("\t0) Done adding toppings");
+            System.out.println("\t0) Done adding/removing toppings");
             System.out.print("Select a topping option: ");
             int toppingOption = Main.scanner.nextInt();
             Main.scanner.nextLine();

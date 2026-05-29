@@ -15,10 +15,15 @@ public class ReceiptWriter {
             new File("receipts").mkdirs();
             BufferedWriter writer = new BufferedWriter(new FileWriter("receipts/" + fileName));
 
+            writer.write("Rolling In The Dough");
+            writer.newLine();
+            writer.write("\t---RECEIPT---");
+
             for (Orderable item : order.getItems()) {
                 writer.write(item.toString());
                 writer.newLine();
             }
+            writer.newLine();
             writer.write("Sub Total: $" + String.format("%.2f",order.getSubtotal()));
             writer.newLine();
             writer.write("Tax: (8%): $" + String.format("%.2f", order.getTax()));
