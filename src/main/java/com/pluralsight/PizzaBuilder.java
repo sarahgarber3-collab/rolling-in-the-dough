@@ -66,7 +66,7 @@ public class PizzaBuilder {
     public Pizza run() {
         while (true) {
             System.out.println("\n---Pizza Options---");
-            System.out.println("\t1) Create your own Pizza?");
+            System.out.println("\t1) Create your own Pizza");
             System.out.println("\t2) Select a Pizza Special from Menu");
             System.out.print("Select from the options: ");
             int userOption = Main.scanner.nextInt();
